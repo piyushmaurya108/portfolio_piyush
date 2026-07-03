@@ -6,10 +6,10 @@ export const profile = {
   location: "Chandigarh, IN",
   email: "piyushkumarm3@gmail.com",
   phone: "+91 85744 03701",
-  github: "https://github.com/",
-  linkedin: "https://linkedin.com/",
-  leetcode: "https://leetcode.com/",
-  availability: "Open to SDE internships — Summer 2026",
+  github: "https://github.com/piyushmaurya108/",
+  linkedin: "linkedin.com/in/piyush-maurya108/",
+  leetcode: "https://leetcode.com/u/piyushkumarm3/",
+  availability: "Open to SDE internships",
 };
 
 export const roles = [
@@ -21,7 +21,7 @@ export const roles = [
 
 export const about = {
   paragraphs: [
-    "I'm a computer science undergraduate at Panjab University who treats each project like a small piece of infrastructure — spec it, build it, load-test it, ship it. I gravitate toward problems where systems design, developer experience and a bit of applied AI intersect.",
+    "I'm a Computer Science undergraduate at Panjab University with a passion for building full-stack web applications and solving real-world problems. I enjoy turning ideas into practical solutions, learning new technologies, and continuously improving my problem-solving skills through projects and DSA..",
     "Most recently that's meant building CivicVoice, an AI-driven civic complaint aggregator, and HireStack, a real-time coding interview platform. Outside of shipping, I mentor juniors in C/C++ and help run placement operations for my department.",
   ],
   stats: [
@@ -75,7 +75,7 @@ export const experience = [
   {
     role: "Full-Stack Developer Intern",
     org: "Vecontra",
-    duration: "Feb 2026 — Present",
+    duration: "Feb 2026",
     mode: "Remote",
     points: [
       "Built and optimized 10+ RESTful APIs using Node.js and Express.js powering an analytics dashboard SaaS serving 100+ users.",
@@ -117,7 +117,7 @@ export const projects = [
       "3-method location picker (map pin, GPS, cascading address search) using React + Leaflet + Nominatim, resolving precise coordinates that power the AI and portal-matching pipeline.",
     ],
     stack: ["React.js", "Node.js", "Express.js", "MongoDB", "Gemini 2.0 Flash", "Leaflet"],
-    links: { code: "#", demo: "#" },
+    links: { code: "https://github.com/piyushmaurya108/CivicVoice/tree/update", demo: "https://civic-voice-livid.vercel.app" },
   },
   {
     id: "hirestack",
@@ -132,7 +132,7 @@ export const projects = [
       "AI-powered Mock Interview feature using Gemini AI and the Web Speech API — personalized question generation, real-time voice interaction, speech-to-text transcription, and automated performance evaluation.",
     ],
     stack: ["React.js", "Node.js", "Express.js", "MongoDB", "Clerk", "Stream SDK", "Socket.IO"],
-    links: { code: "#", demo: "#" },
+    links: { code: "https://github.com/piyushmaurya108/HireStack/tree/mock", demo: "https://hire-stack-xi.vercel.app" },
   },
 ];
 

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Download, Mail, ArrowDown } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import heroIllustration from "../assets/hero.png";
+import profilePhoto from "./profile-photo.jpg";
 import { profile, roles } from "../data/content";
 
 const heroStack = ["React", "Node.js", "MongoDB", "Express", "Socket.IO", "Gemini 2.0", "Tailwind"];
@@ -36,8 +38,8 @@ export default function Hero() {
           {profile.availability}
         </motion.p>
 
-        <div className="grid md:grid-cols-[1.15fr_0.85fr] gap-12 items-start">
-          <div>
+        <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-14 xl:gap-20 items-center">
+          <div className="relative z-10">
             <motion.h1
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -119,14 +121,66 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="reg-corners rounded-md border font-mono text-[12.5px] leading-relaxed p-5 relative"
-            style={{
-              background: "rgba(18,54,89,0.55)",
-              borderColor: "rgba(207,224,242,0.16)",
-              color: "var(--color-line-dim)",
-              backdropFilter: "blur(6px)",
-            }}
+            className="relative mx-auto w-full max-w-[560px] lg:max-w-none"
           >
+            <div className="hero-portrait-shell reg-corners">
+              <div className="hero-portrait-grid" />
+              <div className="hero-portrait-glow" />
+              <img
+                src={heroIllustration}
+                alt=""
+                aria-hidden="true"
+                className="hero-portrait-accent"
+              />
+
+              <div className="hero-photo-frame">
+                <div className="hero-photo-panel relative overflow-hidden">
+                  <img
+                    src={profilePhoto}
+                    alt={`${profile.name} portrait`}
+                    className="hero-photo-image relative z-0 object-cover"
+                  />
+                </div>
+              </div>
+
+              <div
+                className="hero-orbit-card absolute rounded-xl border font-mono text-[12px] md:text-[12.5px] leading-relaxed p-5 transition-all duration-500"
+                style={{
+                  left: "50%",
+                  top: "58%",
+                  transform: "translate(-50%, -50%)",
+                  zIndex: 20,
+                  width: "82%",
+                  maxWidth: "430px",
+                  background: "rgba(18,54,89,0.14)",
+                  borderColor: "rgba(207,224,242,0.10)",
+                  color: "rgba(232,242,255,.95)",
+                  backdropFilter: "blur(16px)",
+                  WebkitBackdropFilter: "blur(16px)",
+                  boxShadow:
+                    "0 18px 40px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.05)",
+                }}
+              >
+                <div className="flex items-center gap-1.5 mb-4 opacity-70">
+                  <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#ff5f56" }} />
+                  <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#ffbd2e" }} />
+                  <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#27c93f" }} />
+                  <span className="ml-2 text-[11px]">~/piyush.dev</span>
+                </div>
+                <p>$ whoami</p>
+                <p style={{ color: "var(--color-line)" }}>Piyush Maurya - Full-Stack Dev</p>
+                <p className="mt-2">$ stack --json</p>
+                <pre className="whitespace-pre-wrap">{`{
+  frontend: ["React", "Tailwind"],
+  backend:  ["Node", "Express"],
+  db:       ["MongoDB", "MySQL"],
+  ai:       ["Gemini 2.0"]
+}`}</pre>
+                <p className="mt-2">$ location</p>
+                <p style={{ color: "var(--color-ok)" }}>@ {profile.location}</p>
+              </div>
+            </div>
+            <div className="hidden">
             <div className="flex items-center gap-1.5 mb-4 opacity-70">
               <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#ff5f56" }} />
               <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#ffbd2e" }} />
@@ -144,6 +198,7 @@ export default function Hero() {
 }`}</pre>
             <p className="mt-2">$ location</p>
             <p style={{ color: "var(--color-ok)" }}>@ {profile.location}</p>
+            </div>
           </motion.div>
         </div>
       </div>

@@ -6,7 +6,7 @@ export default function About() {
   return (
     <section id="about" className="py-24 md:py-28 border-t" style={{ borderColor: "rgba(207,224,242,0.1)" }}>
       <div className="max-w-6xl mx-auto px-5 md:px-8">
-        <SectionHeading index="01" label="About" title="A dev who obsesses over specs, DX and shipping." />
+        <SectionHeading index="01" label="About" title="Building modern web applications with React, Node.js, and MongoDB while continuously learning software engineering best practices.." />
 
         <div className="grid md:grid-cols-[1.3fr_1fr] gap-6">
           <motion.div
