@@ -20,16 +20,60 @@ export default function Projects() {
               transition={{ duration: 0.6 }}
               className={`grid md:grid-cols-2 gap-8 items-center ${i % 2 ? "md:[&>*:first-child]:order-2" : ""}`}
             >
+              {/* Screenshot panel with browser chrome */}
               <div
-                className="reg-corners rounded-md border aspect-[4/3] flex items-center justify-center relative overflow-hidden"
-                style={{ borderColor: "rgba(207,224,242,0.16)", background: "linear-gradient(135deg, rgba(26,69,112,0.6), rgba(10,32,54,0.9))" }}
+                className="reg-corners rounded-md border overflow-hidden relative group"
+                style={{
+                  borderColor: "rgba(207,224,242,0.16)",
+                  background: "linear-gradient(135deg, rgba(26,69,112,0.6), rgba(10,32,54,0.9))",
+                }}
               >
-                <div className="absolute top-3 left-3 font-mono text-[10px] px-2 py-1 rounded-sm border" style={{ borderColor: "rgba(207,224,242,0.25)", color: "var(--color-line-dim)" }}>
+                <div className="absolute top-3 left-3 z-10 font-mono text-[10px] px-2 py-1 rounded-sm border" style={{ borderColor: "rgba(207,224,242,0.25)", background: "rgba(10,32,54,0.7)", color: "var(--color-line-dim)" }}>
                   SPEC {project.index}
                 </div>
-                <span className="font-display font-semibold text-[15%] opacity-10 select-none" style={{ fontSize: "5.5rem", color: "var(--color-line)" }}>
-                  {project.index}
-                </span>
+
+                {project.image ? (
+                  <a
+                    href={project.links?.demo || "#"}
+                    target={project.links?.demo && project.links.demo !== "#" ? "_blank" : undefined}
+                    rel="noreferrer"
+                    className="block"
+                  >
+                    {/* fake browser chrome bar so the screenshot reads as a live product, not a floating image */}
+                    <div
+                      className="flex items-center gap-2 px-3 py-2.5 border-b"
+                      style={{ borderColor: "rgba(207,224,242,0.12)", background: "rgba(8,24,41,0.6)" }}
+                    >
+                      <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#ff5f56" }} />
+                      <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#ffbd2e" }} />
+                      <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#27c93f" }} />
+                      <span
+                        className="ml-2 flex-1 truncate font-mono text-[10.5px] px-2 py-1 rounded-sm text-center"
+                        style={{ background: "rgba(207,224,242,0.06)", color: "var(--color-line-faint)" }}
+                      >
+                        {project.url || `${project.name.toLowerCase()}.app`}
+                      </span>
+                    </div>
+
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <img
+                        src={project.image}
+                        alt={`${project.name} product screenshot`}
+                        loading="lazy"
+                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                      />
+                    </div>
+                  </a>
+                ) : (
+                  <div className="aspect-[4/3] flex items-center justify-center">
+                    <span
+                      className="font-display font-semibold opacity-10 select-none"
+                      style={{ fontSize: "5.5rem", color: "var(--color-line)" }}
+                    >
+                      {project.index}
+                    </span>
+                  </div>
+                )}
               </div>
 
               <div>
@@ -63,6 +107,8 @@ export default function Projects() {
                 <div className="mt-6 flex items-center gap-3">
                   <a
                     href={project.links.code}
+                    target="_blank"
+                    rel="noreferrer"
                     className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-sm border font-mono text-[12.5px]"
                     style={{ borderColor: "var(--color-line-faint)", color: "var(--color-line)" }}
                   >
@@ -70,6 +116,8 @@ export default function Projects() {
                   </a>
                   <a
                     href={project.links.demo}
+                    target="_blank"
+                    rel="noreferrer"
                     className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-sm font-mono text-[12.5px] font-medium"
                     style={{ background: "var(--color-signal)", color: "var(--color-blueprint-900)" }}
                   >

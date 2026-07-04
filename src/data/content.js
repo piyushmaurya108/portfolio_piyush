@@ -1,3 +1,6 @@
+import civicVoiceImage from "../assets/projects/civicvoice.png";
+import hireStackImage from "../assets/projects/hirestack.png";
+
 export const profile = {
   name: "Piyush Maurya",
   role: "Full-Stack Developer",
@@ -7,11 +10,11 @@ export const profile = {
   email: "piyushkumarm3@gmail.com",
   phone: "+91 85744 03701",
   github: "https://github.com/piyushmaurya108/",
-  linkedin: "linkedin.com/in/piyush-maurya108/",
+  linkedin: "https://linkedin.com/in/piyush-maurya108/",
   leetcode: "https://leetcode.com/u/piyushkumarm3/",
   availability: "Open to SDE internships",
 };
-
+ 
 export const roles = [
   "Full-Stack Developer",
   "MERN Engineer",
@@ -108,6 +111,7 @@ export const projects = [
     id: "civicvoice",
     index: "01",
     name: "CivicVoice",
+    image: civicVoiceImage,
     tagline: "AI-powered civic complaint aggregator",
     description:
       "A dual-mode complaint platform that turns a phone-shot photo or a short text into a formal, officer-addressed petition — routed by ward-to-state hierarchy to the correct government portal.",
@@ -123,6 +127,7 @@ export const projects = [
     id: "hirestack",
     index: "02",
     name: "HireStack",
+    image: hireStackImage,
     tagline: "Real-time coding interview platform",
     description:
       "A collaborative interview studio with live video, chat, shared code execution and an AI mock-interview mode — built for interview prep and real hiring loops.",

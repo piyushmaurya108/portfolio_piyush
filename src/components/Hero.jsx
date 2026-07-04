@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Download, Mail, ArrowDown } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import heroIllustration from "../assets/hero.png";
 import profilePhoto from "./profile-photo.jpg";
 import { profile, roles } from "../data/content";
 
@@ -117,87 +116,80 @@ export default function Hero() {
             </motion.div>
           </div>
 
+          {/* Portrait + terminal panel */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="relative mx-auto w-full max-w-[560px] lg:max-w-none"
+            className="relative mx-auto w-full max-w-[480px] lg:max-w-none"
           >
-            <div className="hero-portrait-shell reg-corners">
-              <div className="hero-portrait-grid" />
-              <div className="hero-portrait-glow" />
+            <div
+              className="reg-corners rounded-2xl border overflow-hidden relative"
+              style={{
+                borderColor: "rgba(207,224,242,0.16)",
+                background: "rgba(18,54,89,0.35)",
+                aspectRatio: "4 / 5",
+              }}
+            >
+              {/* photo -- full frame, fully visible, top-anchored so the face never gets covered */}
               <img
-                src={heroIllustration}
-                alt=""
-                aria-hidden="true"
-                className="hero-portrait-accent"
+                src={profilePhoto}
+                alt={`${profile.name} portrait`}
+                className="absolute inset-0 w-full h-full object-cover object-top"
               />
 
-              <div className="hero-photo-frame">
-                <div className="hero-photo-panel relative overflow-hidden">
-                  <img
-                    src={profilePhoto}
-                    alt={`${profile.name} portrait`}
-                    className="hero-photo-image relative z-0 object-cover"
-                  />
-                </div>
-              </div>
-
+              {/* soft scrim behind the card only -- keeps text legible without a blur sitting on the face */}
               <div
-                className="hero-orbit-card absolute rounded-xl border font-mono text-[12px] md:text-[12.5px] leading-relaxed p-5 transition-all duration-500"
+                className="absolute inset-x-0 bottom-0 pointer-events-none"
                 style={{
-                  left: "50%",
-                  top: "58%",
-                  transform: "translate(-50%, -50%)",
-                  zIndex: 20,
-                  width: "82%",
-                  maxWidth: "430px",
-                  background: "rgba(18,54,89,0.14)",
-                  borderColor: "rgba(207,224,242,0.10)",
-                  color: "rgba(232,242,255,.95)",
-                  backdropFilter: "blur(16px)",
-                  WebkitBackdropFilter: "blur(16px)",
-                  boxShadow:
-                    "0 18px 40px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.05)",
+                  height: "58%",
+                  background:
+                    "linear-gradient(to top, rgba(8,24,41,0.97) 20%, rgba(8,24,41,0.8) 55%, rgba(8,24,41,0) 100%)",
+                }}
+              />
+
+              {/* terminal card -- sized to fit its own content, anchored to the bottom, never overlaps the face */}
+              <div
+                className="absolute left-3 right-3 bottom-3 md:left-4 md:right-4 md:bottom-4 rounded-lg border font-mono text-[11px] md:text-[12px] leading-relaxed p-4 md:p-5"
+                style={{
+                  background: "rgba(10,32,54,0.6)",
+                  borderColor: "rgba(207,224,242,0.14)",
+                  color: "rgba(232,242,255,0.95)",
+                  backdropFilter: "blur(4px)",
+                  WebkitBackdropFilter: "blur(4px)",
+                  boxShadow: "0 12px 30px rgba(0,0,0,0.35)",
                 }}
               >
-                <div className="flex items-center gap-1.5 mb-4 opacity-70">
-                  <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#ff5f56" }} />
-                  <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#ffbd2e" }} />
-                  <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#27c93f" }} />
-                  <span className="ml-2 text-[11px]">~/piyush.dev</span>
+                <div className="flex items-center gap-1.5 mb-3 opacity-70">
+                  <span className="w-2 h-2 rounded-full" style={{ background: "#ff5f56" }} />
+                  <span className="w-2 h-2 rounded-full" style={{ background: "#ffbd2e" }} />
+                  <span className="w-2 h-2 rounded-full" style={{ background: "#27c93f" }} />
+                  <span className="ml-2 text-[10.5px]">~/piyush.dev</span>
                 </div>
                 <p>$ whoami</p>
-                <p style={{ color: "var(--color-line)" }}>Piyush Maurya - Full-Stack Dev</p>
-                <p className="mt-2">$ stack --json</p>
-                <pre className="whitespace-pre-wrap">{`{
+                <p style={{ color: "var(--color-line)" }}>{profile.name} — Full-Stack Dev</p>
+                <p className="mt-1.5">$ stack --json</p>
+                <pre className="whitespace-pre-wrap text-[10px] md:text-[11px] leading-snug">{`{
   frontend: ["React", "Tailwind"],
   backend:  ["Node", "Express"],
   db:       ["MongoDB", "MySQL"],
   ai:       ["Gemini 2.0"]
 }`}</pre>
-                <p className="mt-2">$ location</p>
+                <p className="mt-1.5">$ location</p>
                 <p style={{ color: "var(--color-ok)" }}>@ {profile.location}</p>
               </div>
             </div>
-            <div className="hidden">
-            <div className="flex items-center gap-1.5 mb-4 opacity-70">
-              <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#ff5f56" }} />
-              <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#ffbd2e" }} />
-              <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#27c93f" }} />
-              <span className="ml-2 text-[11px]">~/piyush.dev</span>
-            </div>
-            <p>$ whoami</p>
-            <p style={{ color: "var(--color-line)" }}>Piyush Maurya — Full-Stack Dev</p>
-            <p className="mt-2">$ stack --json</p>
-            <pre className="whitespace-pre-wrap">{`{
-  frontend: ["React", "Tailwind"],
-  backend:  ["Node", "Express"],
-  db:       ["MongoDB", "MySQL"],
-  ai:       ["Gemini 2.0"]
-}`}</pre>
-            <p className="mt-2">$ location</p>
-            <p style={{ color: "var(--color-ok)" }}>@ {profile.location}</p>
+
+            {/* index tag, echoes the blueprint spec-sheet motif used elsewhere */}
+            <div
+              className="absolute -top-3 -left-3 font-mono text-[10px] px-2.5 py-1 rounded-sm border"
+              style={{
+                borderColor: "rgba(207,224,242,0.25)",
+                background: "var(--color-blueprint-800)",
+                color: "var(--color-line-dim)",
+              }}
+            >
+               PROFILE
             </div>
           </motion.div>
         </div>

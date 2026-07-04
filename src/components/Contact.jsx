@@ -114,7 +114,7 @@ export default function Contact() {
                 <input
                   value={form.name}
                   onChange={update("name")}
-                  placeholder="Ada Lovelace"
+                  placeholder="Cristino Ronaldo"
                   className="w-full bg-transparent outline-none font-mono text-[13px] placeholder:opacity-40"
                   style={{ color: "var(--color-line)" }}
                 />
